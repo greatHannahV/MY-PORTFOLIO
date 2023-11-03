@@ -6,7 +6,6 @@ const stickyNav = function(entries) {
     const [entry] = entries;
     if (!entry.isIntersecting) {
         nav.classList.add('sticky');
-        console.log('sticky');
 
     } else {
         nav.classList.remove('sticky');
@@ -21,17 +20,17 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 
 headerObserver.observe(header);
 //////////
-const headerHeight = header.clientHeight;
+// const headerHeight = header.clientHeight;
 
-function handleScroll() {
-    if (window.scrollY > headerHeight) {
-        nav.classList.add('sticky');
-    } else {
-        nav.classList.remove('sticky');
-    }
-}
+// function handleScroll() {
+//     if (window.scrollY > headerHeight) {
+//         nav.classList.add('sticky');
+//     } else {
+//         nav.classList.remove('sticky');
+//     }
+// }
 
-window.addEventListener('scroll', handleScroll);
+// window.addEventListener('scroll', handleScroll);
 
 // animation
 gsap.registerPlugin(ScrollTrigger);
