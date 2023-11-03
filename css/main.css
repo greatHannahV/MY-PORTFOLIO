@@ -260,6 +260,12 @@ a:hover {
     color: black;
 }
 
+.contact__link a:hover,
+.contact__link a:active {
+    color: var(--acent-color);
+    font-size: 1.2rem;
+}
+
 .lazy-img {
     filter: blur(0.2px);
 }
@@ -280,7 +286,6 @@ a:hover {
 
 .projects__left img {
     animation: imges-left 1s ease-in-out;
-    /* Применяем анимацию к изображениям */
 }
 
 .projects__right a img {
