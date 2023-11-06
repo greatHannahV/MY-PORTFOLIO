@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+}
+
 .content,
 .wrapper,
 .hero,
@@ -34,6 +42,31 @@ img {
     src: url(../fonts/outfit-regular.woff2);
 }
 
+
+/* mobile nav */
+
+.btn-mobile__nav {
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: none;
+}
+
+.icon-mobile-nav {
+    height: 3.8rem;
+    width: 3.8rem;
+    color: var(--main-color);
+}
+
+.icon-mobile-nav[name="menu-outline"] {}
+
+.icon-mobile-nav[name="close-outline"] {
+    display: none;
+}
+
+
+/* nav */
+
 .nav {
     background-color: var(--background);
     display: flex;
@@ -41,12 +74,20 @@ img {
     transition: all 0.5s ease-in-out;
 }
 
-.nav.sticky {
-    z-index: 99999 !important;
-    top: 0;
+.sticky .nav {
     position: fixed;
+    z-index: 9999;
+    top: 0;
+    bottom: 0;
     background-color: rgba(255, 237, 174, 0.927);
     width: 100%;
+    height: 4.3rem;
+    box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.03);
+    padding-bottom: 0;
+}
+
+.sticky .projects__title {
+    margin-top: 5rem;
 }
 
 .nav__list a {
@@ -70,10 +111,14 @@ img {
     font-family: raleway-c;
 }
 
-.nav__list li::after {
+.nav__link {
+    position: relative;
+}
+
+.nav__link::after {
     content: '';
     position: absolute;
-    bottom: 0.8rem;
+    bottom: -0.3rem;
     left: 0;
     width: 100%;
     height: 0.8px;

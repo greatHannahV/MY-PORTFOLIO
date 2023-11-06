@@ -5,16 +5,20 @@ const stickyNav = function(entries) {
 
     const [entry] = entries;
     if (!entry.isIntersecting) {
-        nav.classList.add('sticky');
+        document.body.classList.add('sticky');
+        console.log('sticky');
 
     } else {
-        nav.classList.remove('sticky');
+        document.body.classList.remove('sticky');
+        console.log(' not sticky');
     }
 }
 
 const headerObserver = new IntersectionObserver(stickyNav, {
     root: null,
     threshold: 0,
+    rootMargin: '-280px'
+
 
 });
 
@@ -32,14 +36,65 @@ headerObserver.observe(header);
 
 // window.addEventListener('scroll', handleScroll);
 
-// animation
-gsap.registerPlugin(ScrollTrigger);
-ScrollSmoother.create({
-    content: '.content',
-    wrapper: '.wrapper',
-    smooth: 1.5,
-    effects: true,
+
+
+// navigation
+
+
+document.querySelector('.nav__list').addEventListener('click', function(e) {
+    e.preventDefault();
+    if (e.target.classList.contains('nav__link')) {
+        const id = e.target.getAttribute('href');
+        document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+
+    }
+
 })
+
+const handleHover = function(e, opacity) {
+    if (e.target.classList.contains('nav__link')) {
+        const link = e.target;
+        const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+        siblings.forEach(el => {
+            if (el !== link) {
+                el.style.opacity = this;
+                el.style.transition = 'all 0.5s linear';
+
+            }
+        })
+    }
+}
+nav.addEventListener('mouseover', handleHover.bind(0.5))
+
+nav.addEventListener('mouseout', handleHover.bind(1))
+
+/////////////
+//smoothscroll
+const allLinks = document.querySelectorAll('a:link')
+allLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const href = link.getAttribute('href')
+            if (href === '#') window.ScrollSmoother({ top: 0 });
+            if (href !== '#' && href.startsWith('#')) {
+                const sectionId = document.querySelector(href);
+                sectionId.ScrollSmoother
+            };
+            //close mobnav
+            if (link.classList.contains('nav__link'))
+                console.log(link);
+            document.querySelector('.content').classList.toggle('nav-open')
+        })
+    })
+    //////////
+    // animation
+    // gsap.registerPlugin(ScrollTrigger);
+    // ScrollSmoother.create({
+    //     content: '.content',
+    //     wrapper: '.wrapper',
+    //     smooth: 1.5,
+    //     effects: true,
+    // })
 
 ////////////////////
 // hero section
@@ -154,33 +209,12 @@ const imgObserver = new IntersectionObserver(loadImg, {
 imgTargets.forEach(img => imgObserver.observe(img))
 
 ////////////////
-// navigation
 
+// mob nav
+const navBtn = document.querySelectorAll(".icon-mobile-nav")
+navBtn.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        document.querySelector('.content').classList.toggle('nav-open')
 
-document.querySelector('.nav__list').addEventListener('click', function(e) {
-    e.preventDefault();
-    if (e.target.classList.contains('nav__link')) {
-        const id = e.target.getAttribute('href');
-        document.querySelector(id).scrollIntoView({ behavior: 'smooth' })
-    }
-
+    })
 })
-
-const handleHover = function(e, opacity) {
-    if (e.target.classList.contains('nav__link')) {
-        const link = e.target;
-        const siblings = link.closest('.nav').querySelectorAll('.nav__link');
-        siblings.forEach(el => {
-            if (el !== link) {
-                el.style.opacity = this;
-                el.style.transition = 'all 0.5s linear';
-
-            }
-        })
-    }
-}
-nav.addEventListener('mouseover', handleHover.bind(0.5))
-
-nav.addEventListener('mouseout', handleHover.bind(1))
-
-/////////////
