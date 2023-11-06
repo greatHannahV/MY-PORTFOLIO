@@ -6,11 +6,11 @@ const stickyNav = function(entries) {
     const [entry] = entries;
     if (!entry.isIntersecting) {
         document.body.classList.add('sticky');
-        console.log('sticky');
+        document.querySelector('.mobile-nav').classList.add("sticky")
 
     } else {
         document.body.classList.remove('sticky');
-        console.log(' not sticky');
+
     }
 }
 
@@ -41,15 +41,15 @@ headerObserver.observe(header);
 // navigation
 
 
-document.querySelector('.nav__list').addEventListener('click', function(e) {
-    e.preventDefault();
-    if (e.target.classList.contains('nav__link')) {
-        const id = e.target.getAttribute('href');
-        document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+// document.querySelector('.nav__list').addEventListener('click', function(e) {
+//     e.preventDefault();
+//     if (e.target.classList.contains('nav__link')) {
+//         const id = e.target.getAttribute('href');
+//         document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
 
-    }
+//     }
 
-})
+// })
 
 const handleHover = function(e, opacity) {
     if (e.target.classList.contains('nav__link')) {
@@ -75,15 +75,14 @@ allLinks.forEach(function(link) {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const href = link.getAttribute('href')
-            if (href === '#') window.ScrollSmoother({ top: 0 });
+            if (href === '#') window.scrollIntoView({ behavior: 'smooth', top: 0 });
             if (href !== '#' && href.startsWith('#')) {
                 const sectionId = document.querySelector(href);
-                sectionId.ScrollSmoother
+                sectionId.scrollIntoView({ behavior: 'smooth' })
             };
             //close mobnav
             if (link.classList.contains('nav__link'))
-                console.log(link);
-            document.querySelector('.content').classList.toggle('nav-open')
+                body.classList.toggle('nav-open')
         })
     })
     //////////
@@ -211,10 +210,15 @@ imgTargets.forEach(img => imgObserver.observe(img))
 ////////////////
 
 // mob nav
-const navBtn = document.querySelectorAll(".icon-mobile-nav")
-navBtn.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        document.querySelector('.content').classList.toggle('nav-open')
 
-    })
-})
+const navBtn = document.querySelector('.btn-mobile__nav');
+const body = document.querySelector('body');
+
+navBtn.addEventListener('click', function() {
+    body.classList.toggle('nav-open');
+
+
+    const isNavOpen = body.classList.contains('nav-open');
+
+    document.body.style.overflow = isNavOpen ? 'hidden' : 'auto';
+});
