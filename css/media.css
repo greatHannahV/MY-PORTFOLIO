@@ -63,11 +63,11 @@
     }
     .main-nav-list {
         flex-direction: column;
-        gap: 4.8rem;
+        gap: 4rem;
     }
     .main-nav-link:link,
     .main-nav-link:visited {
-        font-size: 3rem;
+        font-size: 4rem;
     }
 }
 
