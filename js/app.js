@@ -77,7 +77,7 @@ document.querySelector('.main-nav-list').addEventListener('click', function(e) {
     if (e.target.classList.contains('nav__link')) {
         const id = e.target.getAttribute('href');
         const targetElement = document.querySelector(id);
-        const offset = targetElement.offsetTop - 100; // Adjust the offset here (200px in this case)
+        const offset = targetElement.offsetTop - 50; // Adjust the offset here (200px in this case)
         window.scrollTo({
             top: offset,
             behavior: 'smooth'
