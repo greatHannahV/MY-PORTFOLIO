@@ -57,19 +57,36 @@ header__list.onclick = function() {
 // navigation
 
 
+// document.querySelector('.main-nav-list').addEventListener('click', function(e) {
+//     e.preventDefault();
+//     if (e.target.classList.contains('nav__link')) {
+//         const id = e.target.getAttribute('href');
+//         document.querySelector(id).scrollIntoView({
+//             behavior: 'smooth',
+
+//         });
+
+//     }
+//     if (e.target.classList.contains('nav__link'))
+//         headerEl.classList.toggle('nav-open')
+//     btnNavEl.classList.toggle('nav-open');
+
+// })
 document.querySelector('.main-nav-list').addEventListener('click', function(e) {
     e.preventDefault();
     if (e.target.classList.contains('nav__link')) {
         const id = e.target.getAttribute('href');
-        document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
-
+        const targetElement = document.querySelector(id);
+        const offset = targetElement.offsetTop - 100; // Adjust the offset here (200px in this case)
+        window.scrollTo({
+            top: offset,
+            behavior: 'smooth'
+        });
     }
     if (e.target.classList.contains('nav__link'))
         headerEl.classList.toggle('nav-open')
     btnNavEl.classList.toggle('nav-open');
-
-})
-
+});
 const handleHover = function(e, opacity) {
     if (e.target.classList.contains('nav__link')) {
         const link = e.target;

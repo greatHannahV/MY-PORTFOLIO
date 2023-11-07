@@ -95,7 +95,7 @@
     }
     .about__text {
         font-size: 1.2rem;
-        background-color: rgba(255, 255, 255, 0.43);
+        background-color: rgba(255, 255, 255, 0.837);
         box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
         padding: 2.5rem;
         color: var(--acent-color);
@@ -125,6 +125,7 @@
         align-items: center;
         justify-content: center;
         padding: 0;
+        margin: 0;
     }
     .projects__left,
     .projects__right {
@@ -145,13 +146,37 @@
 
 @media( max-width:460px) {
     .hero__img {
-        width: calc(var(--index) *42);
-        height: calc(var(--index) *22);
+        width: calc(var(--index) * 42);
+        height: calc(var(--index) * 22);
+        position: relative;
+    }
+    .hero::before {
+        content: '';
+        background-color: rgba(0, 0, 0, 0.2);
+        top: 0;
+        left: 0;
+        width: calc(var(--index) * 42);
+        height: calc(var(--index) * 22);
+        position: absolute;
+        z-index: 2;
+    }
+    .about__title {
+        text-shadow: 1px 0px 7px rgba(214, 215, 219, 0.429);
+        font-size: 4rem;
+        z-index: 3;
+        border-radius: 30%;
+        width: 100%;
+        text-align: center;
     }
     .about {
         position: absolute;
         left: 0;
-        top: -5rem;
+        top: -7rem;
+        z-index: 3;
+    }
+    .about__text {
+        padding: 0.9rem 1rem;
+        z-index: 3;
     }
     .projects__title {
         font-size: 4rem;
