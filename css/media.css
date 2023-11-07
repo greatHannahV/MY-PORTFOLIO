@@ -149,6 +149,7 @@
         width: calc(var(--index) * 42);
         height: calc(var(--index) * 22);
         position: relative;
+        margin-top: -rem;
     }
     .hero::before {
         content: '';
@@ -171,7 +172,7 @@
     .about {
         position: absolute;
         left: 0;
-        top: -7rem;
+        top: -9rem;
         z-index: 3;
     }
     .about__text {
