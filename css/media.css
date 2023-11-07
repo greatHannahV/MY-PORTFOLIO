@@ -18,69 +18,51 @@
 
 @media( max-width:1013px) {
     /* mob nav */
-    .btn-mobile__nav {
+    .btn-mob-nav {
         display: block;
         z-index: 99999;
-        top: 10px;
-        left: 20px;
     }
-    .sticky .mobile-nav {
-        width: 100%;
-        position: fixed;
-        background-color: rgba(255, 237, 174, 0.927);
-        z-index: 5;
-        height: 5rem;
-    }
-    .icon-mobile-nav {
-        height: 4rem;
-        width: 4rem;
-        color: var(--main-color);
-    }
-    .wrapper {
-        position: relative;
-    }
-    .nav {
+    .main-nav {
+        background-color: rgb(255, 255, 255, 0.15);
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(10px);
         position: absolute;
         top: 0;
         left: 0;
-        background-color: rgba(255, 255, 255, 0.937);
-        filter: blur(0.2px);
-        width: 80%;
+        width: 100%;
         height: 100vh;
-        transform: translateX(-100000%);
+        transform: translateX(100%);
         display: flex;
-        align-items: start;
-        justify-content: start;
-        transition: all 0.3s;
-        /* hide nav */
+        align-items: center;
+        justify-content: center;
+        /* display:none-cannot be animated(transition) */
+        transition: all 0.5s ease-in;
+        /* visible */
         opacity: 0;
+        /* for click */
         pointer-events: none;
+        /* screen readeres */
         visibility: hidden;
     }
-    .nav-open .nav {
+    .nav-open .main-nav {
         opacity: 1;
         pointer-events: auto;
         visibility: visible;
         transform: translateX(0);
+        z-index: 99999;
     }
-    .nav__list {
-        flex-direction: column;
-        gap: 4rem;
-        margin-top: 10rem;
-        margin-left: 3rem;
-    }
-    .nav__link:link,
-    .nav__link:visited {
-        font-size: 2rem;
-    }
-    .nav__link:hover,
-    .nav__link:active {
-        color: var( --acent-color);
-    }
-    .nav-open .icon-mobile-nav[name="close-outline"] {
+    .nav-open .icon-mob-nav[name="close-outline"] {
         display: block;
     }
-    .nav-open .icon-mobile-nav[name="menu-outline"] {
+    .nav-open .icon-mob-nav[name="menu-outline"] {
         display: none;
+    }
+    .main-nav-list {
+        flex-direction: column;
+        gap: 4.8rem;
+    }
+    .main-nav-link:link,
+    .main-nav-link:visited {
+        font-size: 3rem;
     }
 }

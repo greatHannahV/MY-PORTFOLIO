@@ -1,12 +1,15 @@
 const header = document.querySelector('.hero');
-const nav = document.querySelector('.nav');
+const nav = document.querySelector('.main-nav');
+const btnNavEl = document.querySelector('.btn-mob-nav');
+const headerEl = document.querySelector('.header');
 
+const back = document.querySelector('body');
+const header__list = document.querySelector('.main-nav-list');
 const stickyNav = function(entries) {
 
     const [entry] = entries;
     if (!entry.isIntersecting) {
         document.body.classList.add('sticky');
-        document.querySelector('.mobile-nav').classList.add("sticky")
 
     } else {
         document.body.classList.remove('sticky');
@@ -24,7 +27,21 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 
 headerObserver.observe(header);
 //////////
-// const headerHeight = header.clientHeight;
+// mob nav
+
+
+btnNavEl.onclick = function() {
+    btnNavEl.classList.toggle('nav-open');
+    headerEl.classList.toggle('nav-open');
+    back.classList.toggle('lock');
+}
+
+header__list.onclick = function() {
+        header__list.classList.remove('nav-open');
+        back.classList.toggle('lock');
+    }
+    ///////////////
+    // const headerHeight = header.clientHeight;
 
 // function handleScroll() {
 //     if (window.scrollY > headerHeight) {
@@ -208,17 +225,3 @@ const imgObserver = new IntersectionObserver(loadImg, {
 imgTargets.forEach(img => imgObserver.observe(img))
 
 ////////////////
-
-// mob nav
-
-const navBtn = document.querySelector('.btn-mobile__nav');
-const body = document.querySelector('body');
-
-navBtn.addEventListener('click', function() {
-    body.classList.toggle('nav-open');
-
-
-    const isNavOpen = body.classList.contains('nav-open');
-
-    document.body.style.overflow = isNavOpen ? 'hidden' : 'auto';
-});

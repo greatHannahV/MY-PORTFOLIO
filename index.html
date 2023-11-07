@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon/32.png">
+    <link rel="apple-touch-icon" href="img/favicon/192.png">
+    <link rel="manifest" href="manifest.webmanifest">
     <title>Porfolio</title>
 
     <script defer src="libs/gsap/gsap.min.js"></script>
@@ -15,30 +18,35 @@
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/media.css">
+    <title>My&mdash; portfolio
+
+    </title>
 </head>
 
 <body>
-    <div class="nav">
-        <ul class="nav__list">
 
-            <li class="list__link "><a class="nav__link" href="#about">About</a></li>
-            <li class="list__link"> <a class="nav__link projects__link" href="#projects"> Projects</a></li>
-            <li class="list__link"><a class="nav__link" href="#contacts">Contacts</a></li>
 
-        </ul>
-    </div>
-    <div class="mobile-nav">
-        <!-- mobile nav -->
-        <button class="btn-mobile__nav">
-        <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
-        <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
-    </button>
-    </div>
+    <header class="header">
+        <nav class="main-nav">
+            <ul class="main-nav-list">
+                <li><a class="nav__link" href="#about">About</a></li>
+                <li><a class="nav__link projects__link" href="#projects"> Projects</a></li>
+                <li><a class="nav__link" href="#contacts">Contacts</a></li>
+
+            </ul>
+        </nav>
+        <!-- btn -->
+        <button class="btn-mob-nav">
+            <ion-icon class="icon-mob-nav" name="menu-outline"></ion-icon>
+            <ion-icon class="icon-mob-nav" name="close-outline"></ion-icon>
+        </button>
+    </header>
     <div class="wrapper">
-        <div class="content " id="about">
+        <div class="content ">
 
+            <!-- about hero -->
 
-            <header class="hero section">
+            <header class="hero section" id="about">
                 <span data-speed="1.2" class="about">
                     <div class="about__title">About.</div>
                     <p class="about__text">
