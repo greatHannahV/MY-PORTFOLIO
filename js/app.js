@@ -20,7 +20,7 @@ const stickyNav = function(entries) {
 const headerObserver = new IntersectionObserver(stickyNav, {
     root: null,
     threshold: 0,
-    rootMargin: '-280px'
+    rootMargin: '-300px'
 
 
 });
@@ -58,20 +58,23 @@ header__list.onclick = function() {
 // navigation
 
 
-// document.querySelector('.nav__list').addEventListener('click', function(e) {
-//     e.preventDefault();
-//     if (e.target.classList.contains('nav__link')) {
-//         const id = e.target.getAttribute('href');
-//         document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+document.querySelector('.main-nav-list').addEventListener('click', function(e) {
+    e.preventDefault();
+    if (e.target.classList.contains('nav__link')) {
+        const id = e.target.getAttribute('href');
+        document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
 
-//     }
+    }
+    if (e.target.classList.contains('nav__link'))
+        headerEl.classList.toggle('nav-open')
+    btnNavEl.classList.toggle('nav-open');
 
-// })
+})
 
 const handleHover = function(e, opacity) {
     if (e.target.classList.contains('nav__link')) {
         const link = e.target;
-        const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+        const siblings = link.closest('.main-nav-list').querySelectorAll('.nav__link');
         siblings.forEach(el => {
             if (el !== link) {
                 el.style.opacity = this;
@@ -87,30 +90,32 @@ nav.addEventListener('mouseout', handleHover.bind(1))
 
 /////////////
 //smoothscroll
-const allLinks = document.querySelectorAll('a:link')
-allLinks.forEach(function(link) {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const href = link.getAttribute('href')
-            if (href === '#') window.scrollIntoView({ behavior: 'smooth', top: 0 });
-            if (href !== '#' && href.startsWith('#')) {
-                const sectionId = document.querySelector(href);
-                sectionId.scrollIntoView({ behavior: 'smooth' })
-            };
-            //close mobnav
-            if (link.classList.contains('nav__link'))
-                body.classList.toggle('nav-open')
-        })
-    })
-    //////////
-    // animation
-    // gsap.registerPlugin(ScrollTrigger);
-    // ScrollSmoother.create({
-    //     content: '.content',
-    //     wrapper: '.wrapper',
-    //     smooth: 1.5,
-    //     effects: true,
-    // })
+// const allLinks = document.querySelectorAll('a:link')
+// allLinks.forEach(function(link) {
+//         link.addEventListener('click', function(e) {
+//             e.preventDefault();
+//             const href = link.getAttribute('href')
+// if (href === '#') window.scrollIntoView({ behavior: 'smooth', top: 0 });
+// if (href !== '#' && href.startsWith('#')) {
+//     const sectionId = document.querySelector(href);
+//     sectionId.scrollIntoView({ behavior: 'smooth' })
+// };
+//close mobnav
+// if (link.classList.contains('nav__link'))
+//     headerEl.classList.toggle('nav-open')
+// btnNavEl.classList.toggle('nav-open');
+
+//     })
+// })
+//////////
+// animation
+// gsap.registerPlugin(ScrollTrigger);
+// ScrollSmoother.create({
+//     content: '.content',
+//     wrapper: '.wrapper',
+//     smooth: 1.5,
+//     effects: true,
+// })
 
 ////////////////////
 // hero section
