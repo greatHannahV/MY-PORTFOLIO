@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/favicon/32.png">
-    <link rel="apple-touch-icon" href="img/favicon/192.png">
-    <link rel="manifest" href="manifest.webmanifest">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/favicon/32.png" />
+    <link rel="apple-touch-icon" href="img/favicon/192.png" />
+    <link rel="manifest" href="manifest.webmanifest" />
     <title>Porfolio</title>
 
     <script defer src="libs/gsap/gsap.min.js"></script>
@@ -16,97 +15,137 @@
 
     <script defer src="js/app.js"></script>
 
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/media.css">
-    <title>My&mdash; portfolio
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/media.css" />
+    <title>My&mdash; portfolio</title>
+  </head>
 
-    </title>
-</head>
-
-<body>
-
-
+  <body>
     <header class="header">
-        <nav class="main-nav">
-            <ul class="main-nav-list">
-                <li><a class="nav__link" href="#about">About</a></li>
-                <li><a class="nav__link projects__link" href="#projects"> Projects</a></li>
-                <li><a class="nav__link" href="#contacts">Contacts</a></li>
-
-            </ul>
-        </nav>
-        <!-- btn -->
-        <button class="btn-mob-nav">
-            <ion-icon class="icon-mob-nav" name="menu-outline"></ion-icon>
-            <ion-icon class="icon-mob-nav" name="close-outline"></ion-icon>
-        </button>
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li><a class="nav__link" href="#about">About</a></li>
+          <li><a class="nav__link projects__link" href="#projects"> Projects</a></li>
+          <li><a class="nav__link" href="#contacts">Contacts</a></li>
+        </ul>
+      </nav>
+      <!-- btn -->
+      <button class="btn-mob-nav">
+        <ion-icon class="icon-mob-nav" name="menu-outline"></ion-icon>
+        <ion-icon class="icon-mob-nav" name="close-outline"></ion-icon>
+      </button>
     </header>
+
     <div class="wrapper">
-        <div class="content ">
+      <div class="content">
+        <!-- about hero -->
 
-            <!-- about hero -->
-
-            <header class="hero section" id="about">
-                <span data-speed="1.2" class="about">
-                    <div class="about__title">About.</div>
-                    <p class="about__text">
-                        I'm a person who loves creating beautiful and interactive web experiences with serious intentions to prosper in the web development field and a strong willingness to learn.<br> During my self-education I have created several projects,
-                        using
-                        <span class="words">HTML, CSS, and JavaScript.</span><br>I am excited to find a place where I can further expand my knowledge and grow as a professional.
-                </p>
-                </span>
-
-                <img data-speed="1.1" class="hero__img" src="img/hero.jpg" alt="hero-img">
-
-
-            </header>
-            <!-- <div class="content__body">
+        <header class="hero section" id="about">
+          <span data-speed="1.2" class="about">
+            <div class="about__title">About.</div>
+            <p class="about__text">
+              I'm a person who loves creating beautiful and interactive web experiences with serious
+              intentions to prosper in the web development field and a strong willingness to
+              learn.<br />
+              During my self-education I have created several projects, using
+              <span class="words">HTML, CSS, and JavaScript.</span><br />I am excited to find a
+              place where I can further expand my knowledge and grow as a professional.
+            </p>
+          </span>
+          <img data-speed="1.1" class="hero__img" src="img/hero.jpg" alt="hero-img" />
+        </header>
+        <div class="thicker">
+          <div class="thicker__wrapper">
+            <div class="thicker__item">1.5 years lerning experience</div>
+            <div class="thicker__item">10+ completed projects</div>
+            <div class="thicker__item">Strong desire to be better</div>
+          </div>
+        </div>
+        <!-- <div class="content__body">
                 <div class="column__body"><span class="content-words">10+</span><br> projects</div>
                 <div class="column__body"><span class="content-words">1.5</span><br> years of self-studing</div>
                 <div class="column__body " id="projects"><span class="content-words">Eager</span><br> to grow as a professional</div>
             </div> -->
 
+        <h1 id="projects" class="projects__title">Projects.</h1>
+        <p class="ect">some of them</p>
 
-            <h1 id="projects" class="projects__title">Projects.</h1>
-            <p class="ect"> some of them</p>
+        <main class="projects section">
+          <div class="projects__left" data-speed=".9">
+            <a href="https://greathannahv.github.io/parallax-fall/main.html" target="_blank">
+              <img
+                class="item__left lazy-img"
+                src="img/lazy-1.jpg"
+                data-src="img/imgs/1.jpg"
+                alt="1"
+            /></a>
+            <a href="https://fokify-project-hannaveleva.netlify.app/" target="_blank">
+              <img
+                class="item__left lazy-img"
+                src="img/lazy-2.jpg"
+                data-src="img/imgs/2.JPG"
+                alt="2"
+            /></a>
+            <a href="https://greathannahv.github.io/Mapty/" target="_blank">
+              <img
+                class="item__left lazy-img"
+                src="img/lazy-3.jpg"
+                data-src="img/imgs/3.jpg"
+                alt="3"
+            /></a>
+          </div>
 
-            <main class="projects section">
+          <div class="projects__right" data-speed="1.1">
+            <a href="https://greathannahv.github.io/bankist/" target="_blank">
+              <img
+                class="item__right lazy-img"
+                src="img/lazy-4.jpg"
+                data-src="img/imgs/4.JPG"
+                alt="4"
+            /></a>
+            <a href="https://greathannahv.github.io/A-Bank-Account/" target="_blank">
+              <img
+                class="item__right lazy-img"
+                src="img/lazy-5.jpg"
+                data-src="img/imgs/5.JPG"
+                alt="5"
+            /></a>
+            <a href="https://greathannahv.github.io/a-dice-game/" target="_blank">
+              <img
+                class="item__right lazy-img"
+                src="img/lazy-6.jpg"
+                data-src="img/imgs/6.JPG"
+                alt="6"
+            /></a>
+          </div>
+        </main>
 
-                <div class="projects__left" data-speed=".9">
-                    <a href="https://greathannahv.github.io/parallax-fall/main.html" target="_blank">
-                        <img class="item__left lazy-img" src="img/lazy-1.jpg" data-src="img/imgs/1.jpg" alt="1"></a>
-                    <a href="https://fokify-project-hannaveleva.netlify.app/" target="_blank">
-                        <img class="item__left lazy-img" src="img/lazy-2.jpg" data-src="img/imgs/2.JPG" alt="2"></a>
-                    <a href="https://greathannahv.github.io/Mapty/" target="_blank">
-                        <img class="item__left lazy-img" src="img/lazy-3.jpg" data-src="img/imgs/3.jpg" alt="3"></a>
-                </div>
-
-                <div class="projects__right" data-speed="1.1">
-                    <a href="https://greathannahv.github.io/bankist/" target="_blank">
-                        <img class="item__right lazy-img" src="img/lazy-4.jpg" data-src="img/imgs/4.JPG" alt="4"></a>
-                    <a href="https://greathannahv.github.io/A-Bank-Account/" target="_blank">
-                        <img class="item__right lazy-img" src="img/lazy-5.jpg" data-src="img/imgs/5.JPG" alt="5"></a>
-                    <a href="https://greathannahv.github.io/a-dice-game/" target="_blank">
-                        <img class="item__right lazy-img" src="img/lazy-6.jpg" data-src="img/imgs/6.JPG" alt="6"></a>
-
-                </div>
-
-            </main>
-
-            <footer class="contact section" id="contacts">
-                <div class="contacts__body">
-                    <h1>Contacts.</h1>
-                    <div class="info">
-                        <p class="contact__link"><a href="mailto: hanna.veleva@gmail.com">hanna.veleva@gmail.com</a> </p>
-                        <p class="contact__link"><a href="https://www.linkedin.com/in/hanna-veleva-13854228b/" target="_blank">linkedin.com/in/hanna-veleva-13854228b</a></p>
-                        <p class="contact__link"><a href="https://github.com/greatHannahV" target="_blank">github.com/greatHannahV</a></p>
-                    </div>
-                </div>
-            </footer>
-        </div>
+        <footer class="contact section" id="contacts">
+          <div class="contacts__body">
+            <h1>Contacts.</h1>
+            <div class="info">
+              <p class="contact__link">
+                <a href="mailto: hanna.veleva@gmail.com">hanna.veleva@gmail.com</a>
+              </p>
+              <p class="contact__link">
+                <a href="https://www.linkedin.com/in/hanna-veleva-13854228b/" target="_blank"
+                  >linkedin.com/in/hanna-veleva-13854228b</a
+                >
+              </p>
+              <p class="contact__link">
+                <a href="https://github.com/greatHannahV" target="_blank"
+                  >github.com/greatHannahV</a
+                >
+              </p>
+            </div>
+          </div>
+        </footer>
+      </div>
     </div>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-</body>
-
+  </body>
 </html>
