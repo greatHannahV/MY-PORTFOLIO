@@ -391,6 +391,7 @@ a:hover {
 .thicker__wrapper {
   display: flex;
   margin: 0;
+  animation: thicker 4s linear infinite; /* Adjusted animation duration */
 }
 
 .thicker__item {
@@ -401,15 +402,14 @@ a:hover {
   flex-shrink: 0;
   padding: 0 80px;
   filter: opacity(20%);
-  animation: thicker 4s linear infinite; /* Adjusted animation duration */
 }
 
 @keyframes thicker {
   0% {
-    transform: translate3d(0, 0, 0);
+    transform: translateZ(0);
   }
 
   100% {
-    transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-125%, 0, 0);
   }
 }
