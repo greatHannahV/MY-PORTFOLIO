@@ -32,6 +32,7 @@ img {
   --acent-color: #8d1426;
   --background: #ffeeae;
   --background-sticky: rgba(255, 237, 173, 0.845);
+  --about__text--background: white;
 }
 
 @font-face {
@@ -203,7 +204,7 @@ img {
 
 .about__text {
   font-size: 1.2rem;
-  background-color: white;
+  background-color: var(--about__text--background);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 2.5rem;
   color: var(--acent-color);
@@ -419,6 +420,7 @@ a:hover {
   --background: #2e3c4b;
   --background-sticky: rgba(46, 60, 74, 0.712);
   --main-color: #1ea54c;
+  --about__text--background: #bdbdbd;
   background-color: #26313e;
   transition: all 0.5s;
 }
@@ -434,6 +436,7 @@ a:hover {
   border: none;
   z-index: 888888888;
 }
+
 .sticky .btn-fake-dark-mode {
   font-size: 25px;
   background-color: var(--background--sticky);
