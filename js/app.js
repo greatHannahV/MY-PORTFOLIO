@@ -1,46 +1,40 @@
-const header = document.querySelector('.hero');
-const nav = document.querySelector('.main-nav');
-const btnNavEl = document.querySelector('.btn-mob-nav');
-const headerEl = document.querySelector('.header');
+const header = document.querySelector('.hero')
+const nav = document.querySelector('.main-nav')
+const btnNavEl = document.querySelector('.btn-mob-nav')
+const headerEl = document.querySelector('.header')
 
-const back = document.querySelector('body');
-const header__list = document.querySelector('.main-nav-list');
-const stickyNav = function(entries) {
-
-    const [entry] = entries;
-    if (!entry.isIntersecting) {
-        document.body.classList.add('sticky');
-
-    } else {
-        document.body.classList.remove('sticky');
-
-    }
+const back = document.querySelector('body')
+const header__list = document.querySelector('.main-nav-list')
+const stickyNav = function (entries) {
+  const [entry] = entries
+  if (!entry.isIntersecting) {
+    document.body.classList.add('sticky')
+  } else {
+    document.body.classList.remove('sticky')
+  }
 }
 
 const headerObserver = new IntersectionObserver(stickyNav, {
-    root: null,
-    threshold: 0,
+  root: null,
+  threshold: 0,
+})
 
-
-});
-
-headerObserver.observe(header);
+headerObserver.observe(header)
 //////////
 // mob nav
 
-
-btnNavEl.onclick = function() {
-    btnNavEl.classList.toggle('nav-open');
-    headerEl.classList.toggle('nav-open');
-    back.classList.toggle('lock');
+btnNavEl.onclick = function () {
+  btnNavEl.classList.toggle('nav-open')
+  headerEl.classList.toggle('nav-open')
+  back.classList.toggle('lock')
 }
 
-header__list.onclick = function() {
-        header__list.classList.remove('nav-open');
-        back.classList.toggle('lock');
-    }
-    ///////////////
-    // const headerHeight = header.clientHeight;
+header__list.onclick = function () {
+  header__list.classList.remove('nav-open')
+  back.classList.toggle('lock')
+}
+///////////////
+// const headerHeight = header.clientHeight;
 
 // function handleScroll() {
 //     if (window.scrollY > headerHeight) {
@@ -52,10 +46,7 @@ header__list.onclick = function() {
 
 // window.addEventListener('scroll', handleScroll);
 
-
-
 // navigation
-
 
 // document.querySelector('.main-nav-list').addEventListener('click', function(e) {
 //     e.preventDefault();
@@ -72,33 +63,36 @@ header__list.onclick = function() {
 //     btnNavEl.classList.toggle('nav-open');
 
 // })
-document.querySelector('.main-nav-list').addEventListener('click', function(e) {
-    e.preventDefault();
+document
+  .querySelector('.main-nav-list')
+  .addEventListener('click', function (e) {
+    e.preventDefault()
     if (e.target.classList.contains('nav__link')) {
-        const id = e.target.getAttribute('href');
-        const targetElement = document.querySelector(id);
-        const offset = targetElement.offsetTop - 50; // Adjust the offset here (200px in this case)
-        window.scrollTo({
-            top: offset,
-            behavior: 'smooth'
-        });
+      const id = e.target.getAttribute('href')
+      const targetElement = document.querySelector(id)
+      const offset = targetElement.offsetTop - 50 // Adjust the offset here (200px in this case)
+      window.scrollTo({
+        top: offset,
+        behavior: 'smooth',
+      })
     }
     if (e.target.classList.contains('nav__link'))
-        headerEl.classList.toggle('nav-open')
-    btnNavEl.classList.toggle('nav-open');
-});
-const handleHover = function(e, opacity) {
-    if (e.target.classList.contains('nav__link')) {
-        const link = e.target;
-        const siblings = link.closest('.main-nav-list').querySelectorAll('.nav__link');
-        siblings.forEach(el => {
-            if (el !== link) {
-                el.style.opacity = this;
-                el.style.transition = 'all 0.5s linear';
-
-            }
-        })
-    }
+      headerEl.classList.toggle('nav-open')
+    btnNavEl.classList.toggle('nav-open')
+  })
+const handleHover = function (e, opacity) {
+  if (e.target.classList.contains('nav__link')) {
+    const link = e.target
+    const siblings = link
+      .closest('.main-nav-list')
+      .querySelectorAll('.nav__link')
+    siblings.forEach((el) => {
+      if (el !== link) {
+        el.style.opacity = this
+        el.style.transition = 'all 0.5s linear'
+      }
+    })
+  }
 }
 nav.addEventListener('mouseover', handleHover.bind(0.5))
 
@@ -135,18 +129,21 @@ nav.addEventListener('mouseout', handleHover.bind(1))
 
 ////////////////////
 // hero section
-gsap.fromTo('.hero', {
-    opacity: 1
-}, {
+gsap.fromTo(
+  '.hero',
+  {
+    opacity: 1,
+  },
+  {
     opacity: 0,
     scrollTrigger: {
-        trigger: '.hero',
-        start: 'center',
-        end: '780px',
-        scrub: true
-    }
-
-})
+      trigger: '.hero',
+      start: 'center',
+      end: '780px',
+      scrub: true,
+    },
+  },
+)
 
 ///////////////
 //sections reveal
@@ -166,47 +163,51 @@ gsap.fromTo('.hero', {
 //     section.classList.add('section--hidden')
 // })
 
-
 /////////////////////////////////
 // projects part
 
 const itemsL = gsap.utils.toArray('.projects__left .item__left')
-itemsL.forEach(item => {
-    gsap.fromTo(item, {
-
-        x: -50, // Initial x position
-        opacity: 0 // Initial opacity
-    }, {
-        x: 0, // Final x position
-        opacity: 1, // Final opacity
-        scrollTrigger: {
-            trigger: item,
-            start: "-850",
-            end: "-100",
-            scrub: true
-        }
-    });
+itemsL.forEach((item) => {
+  gsap.fromTo(
+    item,
+    {
+      x: -50, // Initial x position
+      opacity: 0, // Initial opacity
+    },
+    {
+      x: 0, // Final x position
+      opacity: 1, // Final opacity
+      scrollTrigger: {
+        trigger: item,
+        start: '-850',
+        end: '-100',
+        scrub: true,
+      },
+    },
+  )
 })
 
 const itemsR = gsap.utils.toArray('.projects__right .item__right')
-itemsR.forEach(item => {
-        gsap.fromTo(item, {
-
-            x: 50, // Initial x position
-            opacity: 0 // Initial opacity
-        }, {
-            x: 0, // Final x position
-            opacity: 1, // Final opacity
-            scrollTrigger: {
-                trigger: item,
-                start: "-850",
-                end: "-100",
-                scrub: true
-            }
-
-        })
-    })
-    ///////////////////////////////
+itemsR.forEach((item) => {
+  gsap.fromTo(
+    item,
+    {
+      x: 50, // Initial x position
+      opacity: 0, // Initial opacity
+    },
+    {
+      x: 0, // Final x position
+      opacity: 1, // Final opacity
+      scrollTrigger: {
+        trigger: item,
+        start: '-850',
+        end: '-100',
+        scrub: true,
+      },
+    },
+  )
+})
+///////////////////////////////
 
 /////////////////////////////
 
@@ -224,25 +225,44 @@ itemsR.forEach(item => {
 //     }
 // })
 
-
-
 /////////////
 //images loaded
-const imgTargets = document.querySelectorAll('img[data-src]');
-const loadImg = function(entries, observer) {
-    const [entry] = entries;
-    if (!entry.isIntersecting) return;
-    entry.target.src = entry.target.dataset.src;
-    entry.target.addEventListener('load', function() {
-        entry.target.classList.remove('lazy-img');
-    })
-    observer.unobserve(entry.target);
+const imgTargets = document.querySelectorAll('img[data-src]')
+const loadImg = function (entries, observer) {
+  const [entry] = entries
+  if (!entry.isIntersecting) return
+  entry.target.src = entry.target.dataset.src
+  entry.target.addEventListener('load', function () {
+    entry.target.classList.remove('lazy-img')
+  })
+  observer.unobserve(entry.target)
 }
 const imgObserver = new IntersectionObserver(loadImg, {
-    root: null,
-    threshold: 0,
-    rootMargin: '-200px'
-});
-imgTargets.forEach(img => imgObserver.observe(img))
+  root: null,
+  threshold: 0,
+  rootMargin: '-200px',
+})
+imgTargets.forEach((img) => imgObserver.observe(img))
 
 ////////////////
+//dark mode
+let isFakeDark = false
+
+function toggleFakeDarkMode() {
+  isFakeDark = !isFakeDark
+  document.documentElement.classList.toggle('fake-dark-mode', isFakeDark)
+  updateButtonIcon()
+}
+
+function updateButtonIcon() {
+  btn.textContent = isFakeDark ? '☀️' : '🌙'
+}
+
+const btn = document.createElement('button')
+btn.className = 'btn-fake-dark-mode'
+btn.addEventListener('click', toggleFakeDarkMode)
+
+updateButtonIcon()
+
+// Append button to the body or any other desired element
+document.body.appendChild(btn)

@@ -31,6 +31,7 @@ img {
   --main-color: #012bfc;
   --acent-color: #8d1426;
   --background: #ffeeae;
+  --background-sticky: rgba(255, 237, 173, 0.845);
 }
 
 @font-face {
@@ -137,7 +138,7 @@ img {
   top: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgba(255, 237, 173, 0.845);
+  background-color: var(--background-sticky);
   z-index: 9999;
   height: 3.8rem;
   padding-top: 0;
@@ -390,7 +391,7 @@ a:hover {
 
 .thicker__wrapper {
   display: flex;
-  margin: 0;
+  margin: 1rem;
   animation: thicker 5s linear infinite; /* Adjusted animation duration */
 }
 
@@ -412,4 +413,28 @@ a:hover {
   100% {
     transform: translate3d(-100%, 0, 0);
   }
+}
+/* dark mode */
+.fake-dark-mode {
+  --background: #2e3c4b;
+  --background-sticky: rgba(46, 60, 74, 0.712);
+  --main-color: #1ea54c;
+  background-color: #26313e;
+  transition: all 0.5s;
+}
+
+.btn-fake-dark-mode {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 16px;
+  line-height: 1;
+  font-size: 23px;
+  background-color: var(--background);
+  border: none;
+  z-index: 888888888;
+}
+.sticky .btn-fake-dark-mode {
+  font-size: 25px;
+  background-color: var(--background--sticky);
 }
