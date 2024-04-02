@@ -441,3 +441,7 @@ a:hover {
   font-size: 25px;
   background-color: var(--background--sticky);
 }
+small {
+  margin-top: 0.5rem;
+  padding-left: 0.5rem;
+}
